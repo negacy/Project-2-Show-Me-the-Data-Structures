@@ -8,3 +8,4 @@ The is_user_in_group function has two primary operations---(1) adding users in a
 
 Space complexity
 ------------------
+The space complexity is O(log(n)) beucase the user information is stroed in a binary search tree.
