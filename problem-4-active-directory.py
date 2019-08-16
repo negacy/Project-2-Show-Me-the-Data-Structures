@@ -188,7 +188,7 @@ def is_user_in_group(user, group):
     try:
         users = group.get_users()
 
-#build bst
+        #build bst
         for i in group.get_users():
             bstree.insert(i) 
         #check subgroups
