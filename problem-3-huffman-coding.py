@@ -360,7 +360,6 @@ def huffman_encoding(data):
         return '1'*len(data), [1]*len(data), data[0]
     #replace white space by `|` separator
     data = data.replace(' ', '|')
-    print(data)
     #frequency of characters
     freq = {}
     for char in list(data):
@@ -372,7 +371,6 @@ def huffman_encoding(data):
     #sorted_freq = sorted(freq.items(), key=operator.itemgetter(1), reverse=True)
 #sorted by value then key
     sorted_freq = sorted(freq.items(), key=lambda x: (x[1],x[0]), reverse=True)
-    cnt = 0
     #build a tree
     s = Stack()
     for tpl in sorted_freq:
@@ -445,8 +443,7 @@ def huffman_decoding(encoded_data, tree):
                     decoded_data.append(_node_specific_char(node))
     return ''.join(decoded_data).replace('|', ' ')
 if __name__ == "__main__":
-    codes = {}
-
+    print('------------------TEST-1--------------------')
     a_great_sentence = "The bird is the word"
 
     print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
@@ -463,7 +460,7 @@ if __name__ == "__main__":
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print ("The content of the encoded data is: {}\n".format(decoded_data))
 
-#test 
+    print('------------------TEST-2--------------------')
     a = "Hufman coding is a data compression algorithm."
     encoded_data, encoded_data_lst, tree = huffman_encoding(a)
     print(encoded_data)
@@ -474,7 +471,7 @@ if __name__ == "__main__":
     print(encoded_data)#prints -1
     print(huffman_decoding(encoded_data_lst, tree)) #prints None
 
-    print('------------------TEST-3--------------------')#empty string
+    print('------------------TEST-4--------------------')
     encoded_data, encoded_data_lst, tree = huffman_encoding("AAAAAAAAA")
     print(encoded_data)#prints 111111111
     print(encoded_data_lst)
